@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            width: 100%;
+            height: 100%;
+            background-image: url("https://cdn.wallpapersafari.com/15/19/9bdWqY.jpg");
+            background-repeat: no-repeat;
+            /* background-position: center 40%; */
+          
+        }
+        #container{
+            width: 35%;
+            height: 30vh;
+            /* background-color:aquamarine; */
+            margin: auto;
+            margin-top:15% ;
+            opacity: 0.6;
+            text-align: center;
+        }
+        #date{
+            text-align: center;
+            font-size: xx-large;
+            /* margin-top: 20%; */
+            padding-top: 20px;
+            font-weight: bold;
+        }
+        #one{
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+           justify-content: space-around;
+           /* text-align: center;
+           margin: auto; */
+           margin-left: 10%;
+           margin-top: 4%;
+           margin-bottom: 0%;
+        }
+        #one1{
+            text-align: center;
+        }
+        #onea{
+            height: 70px;
+            width: 100px;
+            /* background-color:black; */
+            text-align: center;
+            font-size: xx-large;
+           padding-top: 40px;
+           /* opacity: 0.5; */
+           /* color: white; */
+           background-color: aquamarine;
+           padding-bottom: 0%;
+           margin-bottom: 0%;
+           /* z-index: 10; */
+        }
+        #one2,#oneb2,#onec2{
+            /* margin-top: 0%; */
+            font-size: x-large;
+            padding-top: 0;
+            width:100px;
+            background-color: aquamarine;
+            padding: 5px;
+            border-radius: 10px;
+        }
+        #onec2{
+            margin-top: 45px;
+        }
+        #oneb{
+            height: 70px;
+            width: 100px;
+            background-color: aquamarine;
+            text-align: center;
+            font-size: xx-large;
+           padding-top: 40px;
+        }
+        #onec{
+            height: 70px;
+            width: 100px;
+            background-color: aquamarine;
+            text-align: center;
+            font-size: xx-large;
+           padding-top: 40px;
+        }
+        #oned{
+            font-size: xx-large;
+            height: 50px;
+            margin-top: 90px;
+            margin-left: 0;
+            background-color: aquamarine;
+              border-radius: 50%;
+        }
+    </style>
+</head>
+<body>
+   <div id="container">
+    <div id="date"></div>
+    <br>
+    <div id="one">
+        <div id="one1">
+            <p id="onea"></p>
+           <p id="one2">Hours</p>
+        </div>
+        <div id="oneb1">
+            <p id="oneb"></p>
+            <p  id="oneb2">Minutes</p>
+        </div>
+        <div id="onec1">
+            <p id="onec"></p>
+            <!-- <br> -->
+            <p  id="onec2">Seconds</p>
+        </div>
+        <div id="oned"></div>
+    </div>
+   </div>
+   <Script>
+    function clock(){
+        let month= ["January","February","March","April","May","June","July",
+            "August","September","October","November","December"];
+        let    daysInWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+        let today=new Date();
+        document.getElementById("date").innerHTML=daysInWeek[today.getDay()]+" "+today.getDate()+" "+month[today.getMonth()]+" "+today.getFullYear();
+
+           let h=today.getHours();
+           let m=today.getMinutes();
+           let s=today.getSeconds();
+           let day=h<12?'am':'pm';
+           h=h<10?'0'+h:h;
+           m=m<10?'0'+m:m;
+           s=s<10?'0'+s:s;
+           if(h>12){
+            h=h-12;
+            h="0"+h
+           }
+           document.getElementById('onea').innerHTML=h;
+           document.getElementById('oneb').innerHTML=m;
+           document.getElementById('onec').innerHTML=s;
+           document.getElementById('oned').innerHTML=day;
+
+    }
+    var inetrn=setInterval(clock,400)
+    window.onload=()=> clock();
+   </Script>
+</body>
+</html>
